@@ -1,6 +1,7 @@
 from app import app
+from random import random
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return 'Hello World'
+    return f'Hello World, random number: {random()}'
