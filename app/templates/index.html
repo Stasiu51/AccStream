@@ -7,7 +7,9 @@
 <body>
 <header>This is a header: {{ header }}</header>
 <script>
-    console.log('hello')
+    console.log('fetching...')
+    fetch('/fetchtest').then(response => console.log(response))
+    console.log('hello again')
 </script>
 </body>
 </html>

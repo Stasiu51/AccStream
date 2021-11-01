@@ -6,3 +6,7 @@ from flask import render_template
 @app.route('/index')
 def index():
     return render_template('index.html', header = 'HELLO')
+
+@app.route('/fetchtest',methods = ['GET'])
+def fetchtest():
+    return '!abcdef!'
