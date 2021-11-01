@@ -4,4 +4,4 @@ from random import randint
 @app.route('/')
 @app.route('/index')
 def index():
-    return f'Hello World, random number: {randint(0,10)}'
+    return f'Hello World 2, random number: {randint(0,10)}'
