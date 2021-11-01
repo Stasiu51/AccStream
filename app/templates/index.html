@@ -12,7 +12,7 @@
           return response.json();
       }).then(function (text) {
           console.log('GET response text:');
-          console.log(text); // Print the greeting as text
+          console.log(text.name); // Print the greeting as text
           console.log(JSON.stringify(text))
           console.log('')
       });
