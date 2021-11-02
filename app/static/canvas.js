@@ -30,7 +30,7 @@ function start_drawing_data(){
 }
 function draw_data(){
     console.log('fetching...')
-    fetch('/fetchdata').then(function (response) {
+    fetch('/strokedata').then(function (response) {
           return response.json();
       }).then(function (text) {
           console.log('GET response text:');
