@@ -12,6 +12,7 @@ function animate__c() {
     ctx.lineTo(300, 150); // Draw a line to x=300, y=150.
     ctx.stroke(); // Render the path
     draw_axes();
+    start_drawing_data();
 }
 
 function draw_axes(){
@@ -22,4 +23,18 @@ function draw_axes(){
     ctx.moveTo(0.5*width,0);
     ctx.lineTo(0.5*width,height);
     ctx.stroke();
+}
+
+function start_drawing_data(){
+    const id = setInterval(draw_data,1000)
+}
+function draw_data(){
+    console.log('fetching...')
+    fetch('/fetchdata').then(function (response) {
+          return response.json();
+      }).then(function (text) {
+          console.log('GET response text:');
+          console.log(JSON.stringify(text))
+          console.log('')
+      });
 }

@@ -12,3 +12,13 @@ def index():
 def fetchtest():
     data = {'name':'Stasiu','age':21}
     return jsonify(data)
+
+@app.route('/strokedata', methods = ['GET'])
+def fetchdata():
+    data = {}
+    N = 100
+    x = 0
+    for i in range(N):
+        data[i/N] = x
+        x += randint(-1,0,1)
+    return jsonify(data)
