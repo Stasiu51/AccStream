@@ -6,16 +6,19 @@
 </head>
 <body>
 <header>This is a header: {{ header }}</header>
-<script>
-    console.log('fetching...')
-    fetch('/fetchtest').then(function (response) {
-          return response.json();
-      }).then(function (text) {
-          console.log('GET response text:');
-          console.log(text.name); // Print the greeting as text
-          console.log(JSON.stringify(text))
-          console.log('')
-      });
-</script>
+{#<script>#}
+{#    console.log('fetching...')#}
+{#    fetch('/fetchtest').then(function (response) {#}
+{#          return response.json();#}
+{#      }).then(function (text) {#}
+{#          console.log('GET response text:');#}
+{#          console.log(text.name); // Print the greeting as text#}
+{#          console.log(JSON.stringify(text))#}
+{#          console.log('')#}
+{#      });#}
+{#</script>#}
+
+<canvas id = "canvas" width = "600" height = "300" style="border: 2px dashed"></canvas>
+<button onclick="animate()">Play</button>
 </body>
 </html>
