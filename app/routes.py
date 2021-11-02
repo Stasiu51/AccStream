@@ -20,5 +20,5 @@ def fetchdata():
     x = 0
     for i in range(N):
         data[i/N] = x
-        x += randint(-1,0,1)
+        x += randint(-1,1)
     return jsonify(data)
