@@ -1,6 +1,6 @@
 const ctx = canvas.getContext('2d');
 
-function animate() {
+function animate__c() {
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 5;
 
