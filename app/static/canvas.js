@@ -8,6 +8,7 @@ function animate__c() {
 }
 
 function draw_axes(){
+    ctx.clearRect(0,0,width, height)
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(0,0.8*height);
