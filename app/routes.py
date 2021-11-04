@@ -20,11 +20,10 @@ def fetchdata():
     y = 0
     data['N'] = N
     for i in range(N):
-        data[N] = {}
-        data[N]['x'] = i/N
-        data[N]['y'] = y
+        data[i] = {}
+        data[i]['x'] = i/N
+        data[i]['y'] = y
         y += randint(-1,1)
-        print(data)
 
     print(data)
     return jsonify(data)
