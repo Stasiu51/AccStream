@@ -10,6 +10,7 @@ function animate__c() {
 function draw_axes(){
     ctx.clearRect(0,0,width, height)
     ctx.lineWidth = 1;
+    ctx.strokeStyle = 'black';
     ctx.beginPath();
     ctx.moveTo(0,0.8*height);
     ctx.lineTo(width,0.8*height);
