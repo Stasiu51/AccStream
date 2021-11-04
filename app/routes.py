@@ -30,5 +30,5 @@ def fetchdata():
         # data[key]['y'] = y
         # y += randint(-1,1)
         data[key]['x'] = i/N
-        data[key]['y'] = math.sin(i/N + reqCount/10)
+        data[key]['y'] = math.sin(3*i/N + reqCount/10)
     return jsonify(data)
