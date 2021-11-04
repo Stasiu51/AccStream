@@ -33,7 +33,7 @@ def rxThread(portNum):
                 data, addr = rxSocket.recvfrom(1024)
                 # Echo the data back to the sender
                 print(data)
-                f.write(data)
+                f.write(str(data))
 
             except socket.error:
                 # If no data is received, you get here, but it's not an error
