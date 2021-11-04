@@ -44,6 +44,8 @@ function draw_data(data){
     for (let i =1; i < parseInt(data['N']); i++){
         // console.log(data[i]['x'])
         // console.log(data[i]['y'])
+        console.log((1-data[i]['x'])*height)
+        console.log(width*(data[0]['y']/10+0.5))
         ctx.lineTo((1-data[i]['x'])*height,width*(data[0]['y']/10+0.5))
     }
     ctx.stroke();
