@@ -36,7 +36,7 @@ function draw_data(data){
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'red';
     ctx.beginPath();
-    const squish = 30;
+    const squish = 2;
     ctx.moveTo(width*(data[0]['y']/squish+0.5),(1-data[0]['x'])*height)
     for (let i =1; i < parseInt(data['N']); i++){
         // console.log(data[i]['x'])
