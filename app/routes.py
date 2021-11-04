@@ -30,3 +30,7 @@ def fetchdata(dataindex):
         data[key]['x'] = i/N
         data[key]['y'] = math.sin(5*i/N + int(dataindex)/10)
     return jsonify(data)
+
+@app.route('/ping',methods = ['GET'])
+def pingrequest():
+    return 'pong'
