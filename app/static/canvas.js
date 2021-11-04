@@ -38,7 +38,7 @@ function get_data(){
 }
 
 function draw_data(data){
-    for (let i =0; i < data['N']; i++){
+    for (let i =0; i < int(data['N']); i++){
         console.log(data[i]['x'])
         console.log(data[i]['y'])
     }
