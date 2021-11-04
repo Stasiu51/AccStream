@@ -17,8 +17,11 @@ def fetchtest():
 def fetchdata():
     data = {}
     N = 100
-    x = 0
+    y = 0
+    data['N'] = N
     for i in range(N):
-        data[i/N] = x
-        x += randint(-1,1)
+        data[N] = {}
+        data[N]['x'] = i/N
+        data[N]['y'] = y
+        y += randint(-1,1)
     return jsonify(data)

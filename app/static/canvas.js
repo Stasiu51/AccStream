@@ -26,15 +26,20 @@ function draw_axes(){
 }
 
 function start_drawing_data(){
-    const id = setInterval(draw_data,1000)
+    const id = setInterval(get_data,1000)
 }
-function draw_data(){
+function get_data(){
     console.log('fetching...')
     fetch('/strokedata').then(function (response) {
           return response.json();
-      }).then(function (text) {
-          console.log('GET response text:');
-          console.log(JSON.stringify(text))
-          console.log('')
+      }).then(function (data) {
+          draw_data(data)
       });
+}
+
+function draw_data(data){
+    for (let i =0; i < data['N']; i++){
+        console.log(data[i]['x'])
+        console.log(data[i]['y'])
+    }
 }
