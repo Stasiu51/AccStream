@@ -40,13 +40,13 @@ function get_data(){
 
 function draw_data(data){
     ctx.beginPath();
-    ctx.moveTo((1-data[0]['x'])*height,width*(data[0]['y']/10+0.5))
+    ctx.moveTo(width*(data[0]['y']/10+0.5),(1-data[0]['x'])*height)
     for (let i =1; i < parseInt(data['N']); i++){
         // console.log(data[i]['x'])
         // console.log(data[i]['y'])
         console.log((1-data[i]['x'])*height)
         console.log(1.0*width*(data[i]['y']/10+0.5))
-        ctx.lineTo((1-data[i]['x'])*height,width*(data[i]['y']/10+0.5))
+        ctx.lineTo(width*(data[i]['y']/10+0.5),(1-data[i]['x'])*height)
     }
     ctx.stroke();
 }
