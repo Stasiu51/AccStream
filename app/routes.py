@@ -2,9 +2,7 @@ from app import app
 from random import randint
 from flask import render_template, jsonify
 import math
-import udpRec
 
-udpRec.startRec(100)
 
 reqCount = 0
 
