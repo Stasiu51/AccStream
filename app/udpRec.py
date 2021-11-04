@@ -8,6 +8,7 @@ exit = False
 
 def rxThread(portNum):
     global exit
+    print('thread started')
 
     # Generate a UDP socket
     rxSocket = socket.socket(socket.AF_INET,  # Internet
@@ -42,5 +43,6 @@ def rxThread(portNum):
         sleep(.1)
 
 def startRec(portNum):
+    print('starting thread')
     udpRxThreadHandle = Thread(target=rxThread,args=(portNum,))
     udpRxThreadHandle.start()
