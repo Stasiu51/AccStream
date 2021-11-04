@@ -15,10 +15,8 @@ def fetchtest():
     data = {'name':'Stasiu','age':21}
     return jsonify(data)
 
-@app.route('/strokedata', methods = ['GET'])
-def fetchdata():
-    global reqCount
-    reqCount += 1
+@app.route('/strokedata/<dataindex>', methods = ['GET'])
+def fetchdata(dataindex):
     data = {}
     N = 500
     y = 0
@@ -30,5 +28,5 @@ def fetchdata():
         # data[key]['y'] = y
         # y += randint(-1,1)
         data[key]['x'] = i/N
-        data[key]['y'] = math.sin(3*i/N + reqCount/10)
+        data[key]['y'] = math.sin(3*i/N + dataindex/10)
     return jsonify(data)

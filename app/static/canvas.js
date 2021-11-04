@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const width = canvas.width
 const height = canvas.height
 const ctx = canvas.getContext('2d');
+let dataindex = 0;
 
 function animate__c() {
     start_drawing_data();
@@ -24,11 +25,12 @@ function start_drawing_data(){
 }
 function get_data(){
     console.log('fetching...')
-    fetch('/strokedata').then(function (response) {
+    fetch('/strokedata/' + dataindex).then(function (response) {
           return response.json();
       }).then(function (data) {
             draw_data(data)
       });
+    dataindex ++;
 }
 
 function draw_data(data){
