@@ -8,36 +8,40 @@ exit = False
 
 def rxThread(portNum):
     global exit
-    print('thread started')
+    with open('udpdata.txt','w') as f:
 
-    # Generate a UDP socket
-    rxSocket = socket.socket(socket.AF_INET,  # Internet
-                             socket.SOCK_DGRAM)  # UDP
+        print('thread started')
 
-    # Bind to any available address on port *portNum*
-    rxSocket.bind(("", portNum))
+        # Generate a UDP socket
+        rxSocket = socket.socket(socket.AF_INET,  # Internet
+                                 socket.SOCK_DGRAM)  # UDP
 
-    # Prevent the socket from blocking until it receives all the data it wants
-    # Note: Instead of blocking, it will throw a socket.error exception if it
-    # doesn't get any data
+        # Bind to any available address on port *portNum*
+        rxSocket.bind(("", portNum))
 
-    rxSocket.setblocking(0)
+        # Prevent the socket from blocking until it receives all the data it wants
+        # Note: Instead of blocking, it will throw a socket.error exception if it
+        # doesn't get any data
 
-    print("RX: Receiving data on UDP port " + str(portNum))
+        rxSocket.setblocking(0)
 
-    while not exit:
-        try:
-            # Attempt to receive up to 1024 bytes of data
-            data, addr = rxSocket.recvfrom(1024)
-            # Echo the data back to the sender
-            print(data)
+        print("RX: Receiving data on UDP port " + str(portNum))
 
-        except socket.error:
-            # If no data is received, you get here, but it's not an error
-            # Ignore and continue
-            pass
+        while not exit:
+            try:
+                # Attempt to receive up to 1024 bytes of data
+                data, addr = rxSocket.recvfrom(1024)
+                # Echo the data back to the sender
+                print(data)
+                f.write(data)
+
+            except socket.error:
+                # If no data is received, you get here, but it's not an error
+                # Ignore and continue
+                pass
 
         sleep(.1)
+
 
 def startRec(portNum):
     print('starting thread')
