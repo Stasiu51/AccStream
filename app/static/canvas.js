@@ -4,18 +4,13 @@ const height = canvas.height
 const ctx = canvas.getContext('2d');
 
 function animate__c() {
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = 5;
 
-    ctx.beginPath(); // Start a new path
-    ctx.moveTo(100, 50); // Move the pen to x=100, y=50.
-    ctx.lineTo(300, 150); // Draw a line to x=300, y=150.
-    ctx.stroke(); // Render the path
     draw_axes();
     start_drawing_data();
 }
 
 function draw_axes(){
+    ctx.clearRect(0,0,width,height)
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(0,0.8*height);
@@ -40,7 +35,7 @@ function get_data(){
 
 function draw_data(data){
     ctx.lineWidth = 3;
-    ctx.strokeStyle = 'black';
+    ctx.strokeStyle = 'red';
     ctx.beginPath();
     const squish = 15;
     ctx.moveTo(width*(data[0]['y']/squish+0.5),(1-data[0]['x'])*height)
