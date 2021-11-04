@@ -33,7 +33,8 @@ function get_data(){
     fetch('/strokedata').then(function (response) {
           return response.json();
       }).then(function (data) {
-          draw_data(data)
+            console.log(data)
+            draw_data(data)
       });
 }
 
