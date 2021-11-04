@@ -45,8 +45,8 @@ function draw_data(data){
         // console.log(data[i]['x'])
         // console.log(data[i]['y'])
         console.log((1-data[i]['x'])*height)
-        console.log(1.0*width*(data[0]['y']/10+0.5))
-        ctx.lineTo((1-data[i]['x'])*height,width*(data[0]['y']/10+0.5))
+        console.log(1.0*width*(data[i]['y']/10+0.5))
+        ctx.lineTo((1-data[i]['x'])*height,width*(data[i]['y']/10+0.5))
     }
     ctx.stroke();
 }
