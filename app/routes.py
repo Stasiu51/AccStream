@@ -20,9 +20,10 @@ def fetchdata():
     y = 0
     data['N'] = N
     for i in range(N):
-        data[i] = {}
-        data[i]['x'] = i/N
-        data[i]['y'] = y
+        key = str(i)
+        data[key] = {}
+        data[key]['x'] = i/N
+        data[key]['y'] = y
         y += randint(-1,1)
 
     print(data)
