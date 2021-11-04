@@ -23,10 +23,7 @@ def rxThread(portNum):
 
     rxSocket.setblocking(0)
 
-    print
-    "RX: Receiving data on UDP port " + str(portNum)
-    print
-    ""
+    print("RX: Receiving data on UDP port " + str(portNum))
 
     while not exit:
         try:
