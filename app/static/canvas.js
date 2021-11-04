@@ -4,13 +4,10 @@ const height = canvas.height
 const ctx = canvas.getContext('2d');
 
 function animate__c() {
-
-    draw_axes();
     start_drawing_data();
 }
 
 function draw_axes(){
-    ctx.clearRect(0,0,width,height)
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(0,0.8*height);
@@ -34,6 +31,7 @@ function get_data(){
 }
 
 function draw_data(data){
+    draw_axes();
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'red';
     ctx.beginPath();
@@ -42,8 +40,6 @@ function draw_data(data){
     for (let i =1; i < parseInt(data['N']); i++){
         // console.log(data[i]['x'])
         // console.log(data[i]['y'])
-        console.log((1-data[i]['x'])*height)
-        console.log(1.0*width*(data[i]['y']/10+0.5))
         ctx.lineTo(width*(data[i]['y']/squish+0.5),(1-data[i]['x'])*height)
     }
     ctx.stroke();
