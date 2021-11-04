@@ -21,7 +21,7 @@ function draw_axes(){
 }
 
 function start_drawing_data(){
-    const id = setInterval(get_data,50)
+    const id = setInterval(get_data,100)
 }
 function get_data(){
     console.log('fetching...')
