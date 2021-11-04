@@ -24,6 +24,7 @@ def fetchdata():
         data[N]['x'] = i/N
         data[N]['y'] = y
         y += randint(-1,1)
+        print(data)
 
     print(data)
     return jsonify(data)
