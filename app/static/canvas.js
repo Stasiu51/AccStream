@@ -20,14 +20,13 @@ function draw_axes(){
 }
 
 function start_drawing_data(){
-    const id = setInterval(get_data,1000)
+    const id = setInterval(get_data,200)
 }
 function get_data(){
     console.log('fetching...')
     fetch('/strokedata').then(function (response) {
           return response.json();
       }).then(function (data) {
-            console.log(data)
             draw_data(data)
       });
 }
