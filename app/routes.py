@@ -18,7 +18,7 @@ def fetchtest():
 @app.route('/strokedata/<dataindex>', methods = ['GET'])
 def fetchdata(dataindex):
     data = {}
-    N = 100
+    N = 50
     y = 0
     data['N'] = N
     for i in range(N):
