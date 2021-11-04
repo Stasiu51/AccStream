@@ -39,8 +39,12 @@ function get_data(){
 }
 
 function draw_data(data){
-    for (let i =0; i < int(data['N']); i++){
-        console.log(data[i]['x'])
-        console.log(data[i]['y'])
+    ctx.beginPath();
+    ctx.moveTo((1-data[0]['x'])*height,width*(data[0]['y']/10+0.5))
+    for (let i =1; i < int(data['N']); i++){
+        // console.log(data[i]['x'])
+        // console.log(data[i]['y'])
+        ctx.lineTo((1-data[i]['x'])*height,width*(data[0]['y']/10+0.5))
     }
+    ctx.stroke();
 }
