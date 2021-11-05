@@ -62,3 +62,4 @@ def getLatestDatum():
     data = dataQueue.get()
     print(data)
     dataQueue.task_done()
+    return data
