@@ -2,6 +2,7 @@ from app import app
 from random import randint
 from flask import render_template, jsonify
 import math
+from app.udpRec import getLatestDatum
 
 
 reqCount = 0
@@ -31,4 +32,9 @@ def fetchdata(dataindex):
         data[key]['x'] = i/N
         data[key]['y'] = math.sin(5*i/N + int(dataindex)/10)
     return jsonify(data)
+
+@app.route('/latestdatum')
+def latestdatum():
+    return str(getLatestDatum())
+
 
