@@ -59,5 +59,5 @@ def startRec(portNum):
 
 def getLatestDatum():
     data = dataQueue.get()
-    dataQueue.task_done()
     print(data)
+    dataQueue.task_done()
