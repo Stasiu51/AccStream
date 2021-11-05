@@ -7,15 +7,15 @@ from queue import LifoQueue
 
 exit = False
 dataQueue = LifoQueue()
-
+nInQueue = 0
 def monitorThread():
     global exit, dataQueue
     while not exit:
-        print(f'{len(dataQueue)} items in queue')
+        print(f'{nInQueue} items in queue')
         sleep(5)
 
 def rxThread(portNum):
-    global exit, dataQueue
+    global exit, dataQueue, nInQueue
 
     print('thread started')
 
@@ -40,6 +40,7 @@ def rxThread(portNum):
             data, addr = rxSocket.recvfrom(1024)
             # Echo the data back to the sender
             dataQueue.put(data)
+            nInQueue += 1
 
         except socket.error:
             # If no data is received, you get here, but it's not an error
