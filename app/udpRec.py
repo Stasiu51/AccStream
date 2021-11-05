@@ -58,6 +58,7 @@ def startRec(portNum):
     monitorThreadHandle.start()
 
 def getLatestDatum():
+    print('trying')
     data = dataQueue.get()
     print(data)
     dataQueue.task_done()
