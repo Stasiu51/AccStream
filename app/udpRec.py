@@ -91,7 +91,7 @@ def getData(time, timeBack):
     while dataQueue.not_empty:
         print('getting')
         t, datum = dataQueue.get()
-        print(t,datum)
+        print(t,datum['motionRoll'])
         if t < time - timeBack:
             break
         r[i] = {'x':time - t,'y':datum['motionRoll']}
