@@ -71,7 +71,7 @@ def startRec(portNum, regularity):
     print('starting thread')
     udpRxThreadHandle = Thread(target=rxThread,args=(portNum,))
     udpRxThreadHandle.start()
-    monitorThreadHandle = Thread(target=monitorThread, args=regularity)
+    monitorThreadHandle = Thread(target=monitorThread, args=(regularity,))
     monitorThreadHandle.start()
 
 def getLatestDatum():
