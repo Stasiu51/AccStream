@@ -40,7 +40,11 @@ def rxThread(portNum):
         try:
             # Attempt to receive up to 1024 bytes of data
             bdata, addr = rxSocket.recvfrom(1024)
-            data = json.loads(bdata)
+            try:
+                data = json.loads(bdata)
+            except Exception as e:
+                print(bdata)
+                raise e
             if 'loggingTime' in data:
                 timestamp = parser.parse(data['loggingTime']).timestamp()
                 dataQueue.put((timestamp,data))
@@ -65,6 +69,5 @@ def startRec(portNum, regularity):
 def getLatestDatum():
     print('trying')
     data = dataQueue.get()
-    print(data)
     dataQueue.task_done()
     return data
