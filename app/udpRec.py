@@ -79,3 +79,22 @@ def getLatestDatum():
     data = dataQueue.get()
     dataQueue.task_done()
     return data
+
+def getData(time, timeBack):
+    if not dataQueue.not_empty:
+        return None
+    r={}
+    i = 0
+    while not dataQueue.not_empty:
+        t, datum = dataQueue.get()
+        if t < time - timeBack:
+            break
+        r[i] = {'x':time - t,'y':datum['motionRoll']}
+        i += 1
+    dataQueue.task_done()
+    r['N'] = i
+    return r
+
+
+
+
