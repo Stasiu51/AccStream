@@ -37,6 +37,7 @@ function get_data(){
 function draw_data(data){
     console.log(data)
     draw_axes();
+    if (parseInt(data['N']) === 0){return}
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'red';
     ctx.beginPath();
