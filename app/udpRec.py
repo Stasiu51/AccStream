@@ -44,7 +44,7 @@ def rxThread(portNum):
             try:
                 data = json.loads(bdata)
             except json.JSONDecodeError as e:
-                print(data)
+                print(bdata)
                 raise e
 
             if 'loggingTime' in data:
