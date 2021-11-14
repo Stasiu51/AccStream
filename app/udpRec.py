@@ -45,7 +45,6 @@ def rxThread(portNum):
                 timestamp = parser.parse(data['loggingTime']).timestamp()
                 dataQueue.put((timestamp,data))
             # Echo the data back to the sender
-            dataQueue.put(data)
             nInQueue += 1
 
         except socket.error:
