@@ -51,7 +51,7 @@ def rxThread(portNum):
                 except json.JSONDecodeError:
                     continue
             else:
-                raise Exception('Failed to parse')
+                raise Exception(f'Failed to parse: \n {bdata}')
 
             if 'loggingTime' in data:
                 timestamp = parser.parse(data['loggingTime']).timestamp()
