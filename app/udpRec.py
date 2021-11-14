@@ -85,6 +85,7 @@ def getData(time, timeBack):
         return None
     r={}
     i = 0
+    print(dataQueue)
     while not dataQueue.not_empty:
         t, datum = dataQueue.get()
         if t < time - timeBack:
