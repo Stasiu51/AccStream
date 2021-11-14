@@ -30,7 +30,7 @@ def fetchdata(time):
     #     data[key] = {}
     #     data[key]['x'] = i/N
     #     data[key]['y'] = math.sin(5*i/N + int(dataindex)/10)
-    return getData(datetime.datetime.now().timestamp(), 10)
+    return getData(datetime.datetime.now().timestamp(), 20)
 
 @app.route('/latestdatum')
 def latestdatum():
