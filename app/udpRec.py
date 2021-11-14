@@ -83,11 +83,12 @@ def getLatestDatum():
 def getData(time, timeBack):
     print('start request')
     if not dataQueue.not_empty:
+        print('empty')
         return {'N':0}
     r={}
     i = 0
     print(dataQueue)
-    while not dataQueue.not_empty:
+    while dataQueue.not_empty:
         print('getting')
         t, datum = dataQueue.get()
         print(t,datum)
