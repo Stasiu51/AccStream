@@ -40,7 +40,7 @@ def rxThread(portNum):
         try:
             # Attempt to receive up to 1024 bytes of data
             attempts = 0
-            bdata, addr = rxSocket.recvfrom(4096)
+            bdata, addr = rxSocket.recvfrom(10000)
             try:
                 data = json.loads(bdata)
             except json.JSONDecodeError as e:
