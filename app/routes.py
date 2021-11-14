@@ -26,9 +26,6 @@ def fetchdata(dataindex):
     for i in range(N):
         key = str(i)
         data[key] = {}
-        # data[key]['x'] = i/N
-        # data[key]['y'] = y
-        # y += randint(-1,1)
         data[key]['x'] = i/N
         data[key]['y'] = math.sin(5*i/N + int(dataindex)/10)
     return jsonify(data)

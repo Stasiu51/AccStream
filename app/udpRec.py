@@ -3,16 +3,18 @@ from threading import Thread
 from time import sleep
 import sys
 import json
-from queue import LifoQueue
+from queue import PriorityQueue
+from dateutil import parser
 
 exit = False
-dataQueue = LifoQueue()
+dataQueue = PriorityQueue()
 nInQueue = 0
-def monitorThread():
+
+def monitorThread(regularity):
     global exit, dataQueue
     while not exit:
         print(f'{nInQueue} items in queue')
-        sleep(5)
+        sleep(regularity)
 
 def rxThread(portNum):
     global exit, dataQueue, nInQueue
@@ -37,7 +39,11 @@ def rxThread(portNum):
     while not exit:
         try:
             # Attempt to receive up to 1024 bytes of data
-            data, addr = rxSocket.recvfrom(1024)
+            bdata, addr = rxSocket.recvfrom(1024)
+            data = json.loads(bdata)
+            if 'loggingTime' in data:
+                timestamp = parser.parse(data['loggingTime']).timestamp()
+                dataQueue.put((timestamp,data))
             # Echo the data back to the sender
             dataQueue.put(data)
             nInQueue += 1
@@ -50,11 +56,11 @@ def rxThread(portNum):
     sleep(.1)
 
 
-def startRec(portNum):
+def startRec(portNum, regularity):
     print('starting thread')
     udpRxThreadHandle = Thread(target=rxThread,args=(portNum,))
     udpRxThreadHandle.start()
-    monitorThreadHandle = Thread(target=monitorThread)
+    monitorThreadHandle = Thread(target=monitorThread, args=regularity)
     monitorThreadHandle.start()
 
 def getLatestDatum():
