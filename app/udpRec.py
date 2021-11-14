@@ -44,7 +44,7 @@ def rxThread(portNum):
             while attempts < 10:
                 attempts += 1
                 bdata += rxSocket.recvfrom(1024)[0]
-                print(f'collecting... {attempts}')
+                # print(f'collecting... {attempts}')
                 try:
                     data = json.loads(bdata)
                     break
@@ -87,7 +87,9 @@ def getData(time, timeBack):
     i = 0
     print(dataQueue)
     while not dataQueue.not_empty:
+        print('getting')
         t, datum = dataQueue.get()
+        print(t,datum)
         if t < time - timeBack:
             break
         r[i] = {'x':time - t,'y':datum['motionRoll']}
