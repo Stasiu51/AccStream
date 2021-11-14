@@ -21,7 +21,7 @@ function draw_axes(){
 }
 
 function start_drawing_data(){
-    const id = setInterval(get_data,100)
+    const id = setInterval(get_data,1000)
 }
 function get_data(){
     console.log('fetching...')
@@ -30,10 +30,12 @@ function get_data(){
       }).then(function (data) {
             draw_data(data)
       });
+
     dataindex ++;
 }
 
 function draw_data(data){
+    console.log(data)
     draw_axes();
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'red';
