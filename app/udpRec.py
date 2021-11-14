@@ -41,7 +41,11 @@ def rxThread(portNum):
             # Attempt to receive up to 1024 bytes of data
             attempts = 0
             bdata, addr = rxSocket.recvfrom(4096)
-            data = json.loads(bdata)
+            try:
+                data = json.loads(bdata)
+            except json.JSONDecodeError as e:
+                print(data)
+                raise e
 
             if 'loggingTime' in data:
                 timestamp = parser.parse(data['loggingTime']).timestamp()
