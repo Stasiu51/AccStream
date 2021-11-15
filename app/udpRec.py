@@ -102,7 +102,7 @@ def getData(time, timeBack):
     updateDict(time, timeBack)
     print('updated')
 
-    r = {str(i) :{'x':str(t),'y' : datum} for i, (t, datum) in enumerate(dataDict.items())}
+    r = {str(i) :{'x':str(time- t),'y' : datum} for i, (t, datum) in enumerate(dataDict.items())}
     r['N'] = len(dataDict)
     return r
 
