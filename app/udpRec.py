@@ -76,7 +76,7 @@ def startRec(portNum, regularity):
     monitorThreadHandle.start()
 
 def getLatestDatum():
-    print('trying')
+    # print('trying')
     data = dataQueue.get()
     dataQueue.task_done()
     return data
@@ -88,19 +88,19 @@ def updateDict(time, timeback):
     while not dataQueue.all_tasks_done:
         sleep(0.1)
     while nInQueue > 0:
-        print(f'aaa {time % 5}')
+        # print(f'aaa {time % 5}')
         t, datum = dataQueue.get()
         nInQueue -= 1
-        print(f'got {time % 5}')
+        # print(f'got {time % 5}')
         if t >= time - timeback:
             dataDict[t] = datum['motionRoll']
     # dataQueue.task_done()
 
 
 def getData(time, timeBack):
-    print('start request')
+    # print('start request')
     updateDict(time, timeBack)
-    print('updated')
+    # print('updated')
 
     r = {str(i) :{'x':str((time- t)/timeBack),'y' : datum} for i, (t, datum) in enumerate(dataDict.items())}
     r['N'] = len(dataDict)
