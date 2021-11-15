@@ -8,7 +8,7 @@ from dateutil import parser
 
 exit = False
 dataQueue = PriorityQueue()
-dataDict = {'N':0}
+dataDict = {}
 nInQueue = 0
 
 def monitorThread(regularity):
@@ -84,7 +84,7 @@ def getLatestDatum():
 def updateDict(time, timeback):
     global nInQueue
     global dataDict
-    dataDict = {t:datum for (t, datum) in dataDict.items() if t == 'N' or t > time - timeback}
+    dataDict = {t:datum for (t, datum) in dataDict.items() if t > time - timeback}
     while not dataQueue.all_tasks_done:
         sleep(0.1)
     while nInQueue > 0:
@@ -95,13 +95,14 @@ def updateDict(time, timeback):
         if t >= time - timeback:
             dataDict[t] = datum['motionRoll']
     dataQueue.task_done()
-    dataDict['N'] = len(dataDict)
 
 
 def getData(time, timeBack):
     print('start request')
     updateDict(time, timeBack)
     print('updated')
+    r = {str(t) : datum for (t, datum) in dataDict.items()}
+    r['N'] = len(dataDict)
     return dataDict
 
 
