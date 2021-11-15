@@ -83,7 +83,8 @@ def getLatestDatum():
 
 def updateDict(time, timeback):
     for t in dataDict:
-        print(t, time, timeback)
+        if t == 'N': continue
+        # print(t, time, timeback)
         if t < time - timeback:
 
             dataDict.__delitem__(t)
