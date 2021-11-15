@@ -103,7 +103,7 @@ def getData(time, timeBack):
     print('updated')
     r = {str(t) : datum for (t, datum) in dataDict.items()}
     r['N'] = len(dataDict)
-    return dataDict
+    return r
 
 
 
