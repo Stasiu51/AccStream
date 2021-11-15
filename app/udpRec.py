@@ -94,7 +94,7 @@ def updateDict(time, timeback):
         print(f'got {time % 5}')
         if t >= time - timeback:
             dataDict[t] = datum['motionRoll']
-    dataQueue.task_done()
+    # dataQueue.task_done()
 
 
 def getData(time, timeBack):
