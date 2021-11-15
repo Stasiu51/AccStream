@@ -45,7 +45,7 @@ def rxThread(portNum):
             while attempts < 10:
                 attempts += 1
                 bdata += rxSocket.recvfrom(1024)[0]
-                print(f'collecting... {attempts}')
+                # print(f'collecting... {attempts}')
                 try:
                     data = json.loads(bdata)
                     break
