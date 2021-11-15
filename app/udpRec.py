@@ -83,7 +83,7 @@ def getLatestDatum():
 
 def updateDict(time, timeback):
     global dataDict
-    dataDict = {(t, datum) for (t, datum) in dataDict.items() if t > time - timeback}
+    dataDict = {(t, datum) for (t, datum) in dataDict.items() if t == 'N' or t > time - timeback}
     while dataQueue.not_empty:
         t, datum = dataQueue.get()
         if t >= time - timeback:
