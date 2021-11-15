@@ -89,6 +89,7 @@ def updateDict(time, timeback):
     while dataQueue.not_empty:
         print(f'aaa {time % 5}')
         t, datum = dataQueue.get()
+        nInQueue -= 1
         print(f'got {time % 5}')
         if t >= time - timeback:
             dataDict[t] = datum['motionRoll']
