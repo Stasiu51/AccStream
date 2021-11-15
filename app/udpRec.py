@@ -83,7 +83,9 @@ def getLatestDatum():
 
 def updateDict(time, timeback):
     for t in dataDict:
+        print(t, time, timeback)
         if t < time - timeback:
+
             dataDict.__delitem__(t)
     while dataQueue.not_empty:
         t, datum = dataQueue.get()
